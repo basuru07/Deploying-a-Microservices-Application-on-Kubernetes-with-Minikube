@@ -128,3 +128,5 @@ minikube delete  # Optional
 - CI/CD with GitHub Actions
 
 ## Architecture Diagram
+![image](https://github.com/user-attachments/assets/55c4c52e-2c38-4c21-87fe-dd627e7ea923)
+
