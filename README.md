@@ -10,6 +10,26 @@ This project demonstrates deploying a microservices-based application on a Kuber
 - **Docker**: Containerizes services.
 - **GitHub Actions**: CI/CD pipeline.
 
+## Deployment Steps
+
+1. Clone this repository.  
+2. Run `npm install` in both `backend` and `frontend` directories.  
+3. Run `node index.js` in `backend` to test the API.  
+4. Inspect `backend/Dockerfile`, build locally: `docker build -t yourusername/backend .`  
+5. Run and test backend: `docker run -d -p 3000:3000 yourusername/backend`  
+6. Inspect `frontend/Dockerfile`, build locally: `docker build -t yourusername/frontend .`  
+7. Run and test frontend: `docker run -d -p 80:80 yourusername/frontend`  
+8. Start Minikube: Ensure it’s running with Docker driver.  
+9. Apply Kubernetes manifests in `k8s/` directory to deploy.  
+10. Access the app via `minikube service frontend`.  
+11. Inspect `.github/workflows/ci-cd.yml`, set `DOCKERHUB_USERNAME` and `DOCKERHUB_TOKEN` in GitHub project secrets.  
+12. Create a Docker Hub token, replace `DOCKERHUB_TOKEN` with it.  
+13. Replace `yourusername` in manifests and workflow with your Docker Hub repository (e.g., `yourusername/backend`, `yourusername/frontend`).  
+14. Push code to GitHub, check workflow status.  
+15. Scale frontend to 3 replicas in Kubernetes.  
+16. Test by deleting a frontend pod, verify auto-recovery.  
+17. Clean up: Delete Kubernetes resources, stop Minikube.
+
 ## Project Structure
 
 ```
